@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @about ? @about : 'Welcome' %> | The eBook Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+      <nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-between" style="font-size: 125%">
+      <a class="py-2" href="#" aria-label="Product">
+        <img src="<%= image_path('logo.png') %>">
+      </a>
+      <a class="py-4 d-none d-md-inline-block" href=<%= root_path %>>Home</a>
+      <a class="py-4 d-none d-md-inline-block" href=<%= about_path %>>About</a>
+
+
+    <div class="dropdown">
+      <button type="button" class="btn btn-dark">Add New
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href=<%= new_book_path %>>Book</a>
+        <a href=<%= new_category_path %>>Category</a>
+        <a href=<%= new_author_path %>>Author</a>
+        <a href=<%= new_publisher_path %>>Publisher</a>
+      </div>
+    </div>
+  </div>
+  </nav>
+
+    <div class="position-relative overflow-hidden w-80 h-80 my-md-8 pl-md-8">
+      <div class="bg-dark px-4 pt-md-4 px-md-4 text-center text-white">
+
+        <div class="my-2 py-2" style="text-*-center">
+          <h2 class="display-5">eBooks Shop - best store in the area</h2>
+
+        <div class="bg-light shadow-sm mx-auto text-secondary" style="width: 80%; height: 1900px; border-radius: 21px 21px 0px 0px;">
+        <p></p>
+
+
+
+         <main role="main" class="container">
+
+             <div class="starter-template">
+               <h1>eBooks Shop - best store in the area</h1>
+               <%= yield %>
+             </div>
+
+
+
+
+</body>
+
+
+</html>

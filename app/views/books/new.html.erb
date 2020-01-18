@@ -1,0 +1,46 @@
+<p style="line-height: 80%">
+
+<h1>Add New eBooks</h1>
+
+<p style="line-height: 80%">
+
+<%= form_for :book, url: books_path, local: true do |f| %>
+<p>
+  <%= f.label :title %><br>
+  <%= f.text_field(:title, {:class => 'form-control'}) %>
+</p>
+
+<div class="form-group">
+  <%= f.label :isbn%><br>
+  <%= f.text_field(:isbn, {:class => 'form_control', :id => 'exampleFormControlTextarea3', :rows => '17', :cols => '100'}) %>
+</div>
+
+<div class="form-group">
+  <%= f.label :category%><br>
+  <%= f.select :category_id, Category.all.collect { |m| m.name}, :prompt => 'Select One', class: 'form-control' %><br>
+</div>
+
+<div class="form-group">
+  <%= f.label :author%><br>
+  <%= f.select :author_id, Author.all.collect { |m| m.first_name + " " + m.last_name}, :prompt => 'Select One', class: 'form-control' %><br>
+  <!--  <%= f.select :author_id, [ 'Cell', 'Work', 'Office', 'Home', 'Other' ], :prompt => 'Select One' %> -->
+
+</div>
+<div class="form-group">
+  <%= f.label :publisher%><br>
+  <%= f.select :publisher_id, Publisher.all.collect { |m| m.name}, :prompt => 'Select One', class: 'form-control' %><br>
+</div>
+
+<div class="form-group">
+  <%= f.label :price%><br>
+  <%= f.text_field(:price, {:class => 'form_control', :id => 'exampleFormControlTextarea3', :rows => '17', :cols => '100'}) %>
+</div>
+<div class="form-group">
+  <%= f.label :buy %><br>
+  <%= f.text_field(:buy, {:class => 'form_control', :id => 'exampleFormControlTextarea3', :rows => '17', :cols => '100'}) %>
+</div>
+<p>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
+  <%=link_to "Cancel", books_path, class: 'btn btn-default' %>
+</p>
+<%end%>
