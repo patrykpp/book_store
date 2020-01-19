@@ -15,18 +15,32 @@ class PublishersController < ApplicationController
 end
 
   def update
+    @publisher = Publisher.find(params[:id])
+
+    if(@publisher.update(publisher_params))
+      redirect_to @publisher
+    else
+      render 'edit'
+    end
   end
 
   def edit
+    @publisher = Publisher.find(params[:id])
+
   end
 
   def destroy
+    @publisher = Publisher.find(params[:id])
+    @publisher.destroy
+    redirect_to publishers_path
   end
 
   def index
+    @publusher = Publisher.all
   end
 
   def show
+    @publisher = Publishers.find(params[:id])
   end
 
   private

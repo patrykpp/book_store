@@ -1,5 +1,21 @@
-<div id="books-show">
-  <h2>Wiedzmin - Ostanie Zyczenie</h2>
-<div class= "books-show-left">
-  <%= image_tag('covers/wiedzmin1.jpg') %>
-</div>
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3"><%= @book.title %></h1>
+      <p><%= @book.category %></p>
+      <p><%= @book.author_id %></p>
+      <p><%= @book.author_id %></p>
+      <p><%= @book.publisher_id %></p>
+      <p><%= @book.isbn %></p>
+      <p><%= @book.format %></p>
+      <p><%= @book.excerpt %></p>
+      <p><%= @book.pages %></p>
+
+
+
+
+
+    </div>
+<p style="line-height: 80%">
+<%= link_to 'Edit', edit_book_path(@book), :class => 'btn btn-default' %>
+<%= link_to 'Delete post', @book, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+<%= link_to 'Back', books_path, :class => 'btn btn-default' %>

@@ -10,19 +10,19 @@ class BooksController < ApplicationController
   end
 
   def create
-    @author = Author.new(author_params)
-    if(@author.save)
-      redirect_to @author
+    @book = Book.new(book_params)
+    if(@book.save)
+      redirect_to @book
     else
       render 'new'
     end
   end
 
   def update
-    @author = Author.find(params[:id])
+    @book = Book.find(params[:id])
 
-    if(@author.update(author_params))
-      redirect_to @author
+    if(@book.update(book_params))
+      redirect_to @book
     else
       render 'edit'
     end
@@ -30,18 +30,18 @@ class BooksController < ApplicationController
 
 
   def destroy
-    @author = Author.find(params[:id])
-    @author.destroy
-    redirect_to authors_path
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path
 
   end
 
   def edit
-    @author = Author.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def index
-    @author = Author.all
+    @book = Book.all
   end
 
   def show
@@ -50,7 +50,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-  params.require(:book).permit(:title, :category, :author_id, :publisher_id, :isbn, :price, :format, :excerpt, :pages, :year)
+  params.require(:book).permit(:title, :category_id, :author_id, :publisher_id, :isbn, :year, :price, :buy, :excerpt, :format, :pages)
   end
-
 end
