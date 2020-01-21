@@ -9,6 +9,7 @@ class AuthorsController < ApplicationController
 
   @author = Author.new(author_params)
   if(@author.save)
+    flash[:notice] = "Author Created"
     redirect_to @author
   else
     render 'new'

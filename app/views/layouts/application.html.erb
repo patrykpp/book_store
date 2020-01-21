@@ -42,6 +42,12 @@
 
         <div class="bg-light shadow-sm mx-auto text-secondary" style="width: 80%; height: 1900px; border-radius: 21px 21px 0px 0px;">
         <p></p>
+        <% if flash[:notice] %>
+        <div class="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert] %>
+        <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %>
 
 
 
@@ -49,6 +55,11 @@
 
              <div class="starter-template">
                <h1>eBooks Shop - best store in the area</h1>
+
+
+
+
+
                <%= yield %>
              </div>
 

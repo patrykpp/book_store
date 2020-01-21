@@ -5,9 +5,9 @@ class PublishersController < ApplicationController
   end
 
   def create
-  #render plain: params[:post].inspect
-  if(@publisher.save)
     @publisher = Publisher.new(publisher_params)
+  if(@publisher.save)
+    flash[:notice] = "Publisher Created"
     redirect_to @publisher
   else
     render 'new'
